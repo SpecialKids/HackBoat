@@ -82,7 +82,7 @@ defmodule Hackbot.Learn do
                • **Oficial Tutorial**: <https://docs.python.org/3/tutorial/index.html>
                • **Interactive Python Tutorial**: <http://www.learnpython.org>
                • **Automate The Boring Stuff**: <http://automatetheboringstuff.com>
-               • **Codecademy - Python**: <https://www.codecademy.com/learn/python>
+               • **A Byte of Python**: <https://python.swaroopch.com>
                • **Google's Python Class**: <https://developers.google.com/edu/python/>
                • **Learn Python in Y Minutes**: <https://learnxinyminutes.com/docs/python/>
                • **Other Resources**: <http://docs.python-guide.org/en/latest/intro/learning/>
