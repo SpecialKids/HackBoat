@@ -8,21 +8,10 @@ defmodule HackBoat do
   @token Application.fetch_env!(:hackboat, :token)
 
 
-  defmodule Commands do
-  @moduledoc """
-  A basic set of commands.
-  """
-  use Alchemy.Cogs
-
-  Cogs.def ping, do: Cogs.say("pong")
-
-  end
-
-
   def start(_, _) do
     run = Client.start(@token)
-    use Commands
+    use HackBoat.Elixir.Eval
     run
   end
 
-end
+end  # HackBoat
