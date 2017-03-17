@@ -73,19 +73,18 @@ defmodule HackBoat.Elixir.Eval do
       case Task.yield(task) || Task.shutdown(task) do
       {:ok, result} ->
         embed = eval_embed(code, Macro.to_string(result), "elixir", message, thumb, true)
-        |> build
         |> Cogs.send
 
       nil ->
        embed = eval_error_embed("Evaluation of Elixir exceeded 5 second time limit.")
-       |> build
        |> Cogs.send
       end
     end
   end
 
   Cogs.def eval do
-    Cogs.say("Eval needs code to execute.")
+    embed = eval_error_embed("Eval requires Code to execute.")
+    |> Cogs.send
   end
 
   Cogs.def ping, do: Cogs.say("pong")
