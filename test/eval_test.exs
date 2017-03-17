@@ -17,4 +17,8 @@ defmodule EvalTest do
     assert evaluate_elixir(nil, "subtract = &(&1 - &2)\nsubtract.(4, 1)") == 3
     assert evaluate_elixir(nil, "sayhello = &(\"Hello from \" <> &1)\nsayhello.(\"ExUnit!\")") == "Hello from ExUnit!"
   end
+
+  test "elixir_evaluation_exception_raising" do
+    assert evaluate_elixir(nil, "raise \"ERROR\"") == %RuntimeError{message: "ERROR"}
+  end
 end
