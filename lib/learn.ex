@@ -15,12 +15,11 @@ defmodule Hackbot.Learn do
       |> color(0xCC0000)
   end
 
-  def make_embed_nothumb(title, contents) do
+  def make_embed(title, contents) do
     %Alchemy.Embed{}
     |> title(title)
     |> description(contents)
   end
-
   def make_embed(title, contents, thumbnail) do
     %Alchemy.Embed{}
     |> title(title)
