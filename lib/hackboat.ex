@@ -11,6 +11,7 @@ defmodule HackBoat do
   def start(_, _) do
     run = Client.start(@token)
     use HackBoat.Elixir.Eval
+    use Hackbot.Learn
     run
   end
 
