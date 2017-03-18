@@ -6,6 +6,7 @@ defmodule HackBoat.Learn do
   use Alchemy.Cogs
   import Alchemy.Embed
 
+  @doc false
   #### auto_field_embed/2
   ## Create an Embed that adds a number of fields based on the given input.
   #
@@ -22,6 +23,7 @@ defmodule HackBoat.Learn do
     |> title(title)
   end
 
+  @doc false
   #### error_embed/1
   ## Create an Embed that shows a simple Error Message with the Color Red.
   #
@@ -36,6 +38,7 @@ defmodule HackBoat.Learn do
       |> color(0xCC0000)
   end
 
+  @doc false
   #### make_embed/2
   ## Create a simple Embed containing just a Title and a Description.
   #
@@ -51,6 +54,7 @@ defmodule HackBoat.Learn do
     |> description(contents)
   end
 
+  @doc false
   #### make_embed/3
   ## Create an Embed containing Title, Description, and a Thumbnail.
   #

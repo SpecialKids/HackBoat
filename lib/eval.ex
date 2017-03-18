@@ -8,6 +8,7 @@ defmodule HackBoat.Elixir.Eval do
 
   @valid_ids ["196989358165852160"]
 
+  @doc false
   #### evaluate_elixir/2
   ## Evaluate a snippet of Elixir Code.
   #
@@ -23,6 +24,7 @@ defmodule HackBoat.Elixir.Eval do
        end
    end
 
+  @doc false
   #### eval_error_embed/2
   ## Create a simple Embed with red Colour and short text.
   #
@@ -43,9 +45,9 @@ defmodule HackBoat.Elixir.Eval do
     |> title(error_message)
     |> maybe_thumbnail.()
     |> color(0xCC0000)
-
   end
 
+  @doc false
   #### eval_embed/6
   ## Create an embedded Message displaying the Input and Output of Code Evaluation
   #
@@ -135,5 +137,6 @@ defmodule HackBoat.Elixir.Eval do
     |> Cogs.send
   end
 
+  @doc false
   Cogs.def ping, do: Cogs.say("pong")
 end  # Commands
