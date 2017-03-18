@@ -1,13 +1,18 @@
 defmodule HackBoat.Elixir.Eval do
   import Alchemy.Embed
-  import Alchemy.User
   use Alchemy.Cogs
-
 
   @valid_ids ["196989358165852160"]
 
+  @doc """
+  Evaluate a snippet of Elixir Code.
+
+  ## Parameters
+    - message: The original Alchemy.Message which invoked the Command.
+    - code: String containing the Elixir Code to be executed.
+  """
   def evaluate_elixir(message, code) do
-       result = try do
+       try do
          {result, _} = Code.eval_string(code, [message: message], __ENV__)
          result
        rescue
@@ -15,6 +20,18 @@ defmodule HackBoat.Elixir.Eval do
        end
    end
 
+  @doc """
+  Create a simple Embed with red Colour and short text.
+
+  ## Parameters
+    - error_message: String denoting the Message of what went wrong.
+    - thumbnail: Optional Link for a thumbnail to be shown within the Embed.
+
+  ## Examples
+      eval_error_embed("Evaluation of Elixir exceeded 5 second time limit.")
+
+      eval_error_embed("You are not allowed to use this Command.")
+  """
   def eval_error_embed(error_message, thumbnail \\ nil) do
     maybe_thumbnail = case thumbnail do
       nil -> fn e -> e end
@@ -28,6 +45,17 @@ defmodule HackBoat.Elixir.Eval do
 
   end
 
+  @doc """
+  Create an embedded Message displaying the Input and Output of Code Evaluation
+
+  ## Parameters
+    - input: String that contains the code that was given.
+    - output: String that contains the Result of input's Execution.
+    - lang: String that specifies the Language that was used for Execution.
+    - message: The original Message that invoked the Evaluation.
+    - thumbnail: String that can optionally denote an image to display in the Embed.
+    - admin_mode: Boolean that specifies whether the User which invoked the Command is authorized or not.
+  """
   def eval_embed(input, output, lang, message, thumbnail \\ nil, admin_mode \\ false) do
      maybe_thumbnail = case thumbnail do
        nil -> fn e -> e end
@@ -59,9 +87,15 @@ defmodule HackBoat.Elixir.Eval do
    end)
 
   @doc """
-   Evaluate a Code Snippet in Elixir
+  Evaluate a Code Snippet in Elixir
 
-   code: Snippet to be executed
+  ## Parameters
+    - code: String that contains the Users codeblock.
+
+  ## Examples
+      !eval \`\`\`elixir
+      2 + 2
+      \`\`\`
   """
   Cogs.def eval("elixir", code) do
     thumb = "https://avatars2.githubusercontent.com/u/1481354?v=3&s=400"
@@ -76,14 +110,17 @@ defmodule HackBoat.Elixir.Eval do
         |> Cogs.send
 
       nil ->
-       embed = eval_error_embed("Evaluation of Elixir exceeded 5 second time limit.")
+       eval_error_embed("Evaluation of Elixir exceeded 5 second time limit.")
        |> Cogs.send
       end
     end
   end
 
+  @doc """
+  Information Command to inform the User about not passing any Code to be executed.
+  """
   Cogs.def eval do
-    embed = eval_error_embed("Eval requires Code to execute.")
+    eval_error_embed("Eval requires Code to execute.")
     |> Cogs.send
   end
 
