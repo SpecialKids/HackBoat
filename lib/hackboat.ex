@@ -5,7 +5,7 @@ defmodule HackBoat do
   use Application
   alias Alchemy.Client
 
-  @token Application.fetch_env!(:hackboat, :token)
+  @token Application.fetch_env!(:hackBoat, :token)
 
 
   def start(_, _) do
