@@ -6,16 +6,15 @@ defmodule HackBoat.Learn do
   use Alchemy.Cogs
   import Alchemy.Embed
 
-  @doc """
-  Create an Embed that adds a number of fields based on the given input.
-
+  #### auto_field_embed/2
+  ## Create an Embed that adds a number of fields based on the given input.
+  #
   ## Arguments
-    - title: String specifying the Title of the Embed
-    - information: An Array containing Objects denoting field's titles and descriptions
-
+  #  - title: String specifying the Title of the Embed
+  #  - information: An Array containing Objects denoting field's titles and descriptions
+  #
   ## Example
-      auto_field_embed("Lots of Things", [ {"thing one", "describe thing one"}, {"thing two", "describe thing two"} ])
-  """
+  #    auto_field_embed("Lots of Things", [ {"thing one", "describe thing one"}, {"thing two", "describe thing two"} ])
   def auto_field_embed(title, information) do
     Enum.reduce(information, %Alchemy.Embed{}, fn {name, value}, embed ->
       field(embed, name, value)
@@ -23,48 +22,45 @@ defmodule HackBoat.Learn do
     |> title(title)
   end
 
-  @doc """
-  Create an Embed that shows a simple Error Message with the Color Red.
-
+  #### error_embed/1
+  ## Create an Embed that shows a simple Error Message with the Color Red.
+  #
   ## Arguments
-    - error_message: String specifying the Error Message
-
+  #  - error_message: String specifying the Error Message
+  #
   ## Example
-      error_embed("Don't do that!")
-  """
+  #    error_embed("Don't do that!")
   def error_embed(error_message) do
       %Alchemy.Embed{}
       |> title(error_message)
       |> color(0xCC0000)
   end
 
-  @doc """
-  Create a simple Embed containing just a Title and a Description.
-
+  #### make_embed/2
+  ## Create a simple Embed containing just a Title and a Description.
+  #
   ## Arguments
-    - title: String specifying the Title of the Embed
-    - contents: String specifying the Contents of the Embed
-
+  #  - title: String specifying the Title of the Embed
+  #  - contents: String specifying the Contents of the Embed
+  #
   ## Example
-      make_embed("Weather for Wednesday", "Sunny")
-  """
+  #    make_embed("Weather for Wednesday", "Sunny")
   def make_embed(title, contents) do
     %Alchemy.Embed{}
     |> title(title)
     |> description(contents)
   end
 
-  @doc """
-  Create an Embed containing Title, Description, and a Thumbnail.
-
+  #### make_embed/3
+  ## Create an Embed containing Title, Description, and a Thumbnail.
+  #
   ## Arguments
-    - title: String specifying the Title of the Embed
-    - contents: String specifying the Contents of the Embed
-    - thumbnail: String specifying the URL to the Image that should be used
-
+  #  - title: String specifying the Title of the Embed
+  #  - contents: String specifying the Contents of the Embed
+  #  - thumbnail: String specifying the URL to the Image that should be used
+  #
   ## Example
-      make_embed("C++", "Made by competent Humans", "http://elixir-lang.org/images/logo/logo.png")
-  """
+  #    make_embed("C++", "Made by competent Humans", "http://elixir-lang.org/images/logo/logo.png")
   def make_embed(title, contents, thumbnail) do
     %Alchemy.Embed{}
     |> title(title)
@@ -73,15 +69,31 @@ defmodule HackBoat.Learn do
   end
 
   @doc """
-  A simple Helper Function to inform the User about faulty execution of the Command.
+  Simple Helper Command to inform you about the faulty Execution of the learn Command.
   """
+  #### learn/0
+  ## Send an information message about how to correctly use the learn Command.
   Cogs.def learn() do
     error_embed("No Language specified. Type `!learn all` to view all available Languages.")
     |> Cogs.send
   end
 
   @doc """
-  Displays a description for the Programming Languages for which learn is available.
+  Displays Resources for the specified Language.
+
+  ## Subcommands
+    - `learn all`: Show all available languages with a small description.
+    - `learn <lang>': Look up Resources for a Language.
+
+  ## Examples
+      # Display all available Languages
+      !learn all
+
+      # Display Resources for Python
+      !learn python
+
+      # Display Resources for Elixir
+      !learn elixir
   """
   Cogs.def learn("all") do
     all_languages = [
@@ -101,10 +113,6 @@ defmodule HackBoat.Learn do
     auto_field_embed("Available Learning Resources", all_languages)
     |> Cogs.send
   end
-
-  @doc """
-  Send Resources for C++.
-  """
   Cogs.def learn("c++") do
     make_embed("Resources for C++", "
                 **- GENERAL -**
@@ -124,10 +132,6 @@ defmodule HackBoat.Learn do
                 ", "https://github.com/jwkratz/cpp_logo/blob/master/cpp_logo_small.png?raw=true")
     |> Cogs.send
   end
-
-  @doc """
-  Send Resources for Elixir.
-  """
   Cogs.def learn("elixir") do
     make_embed("Resources for Elixir", "
                 **- GENERAL -**
@@ -152,10 +156,6 @@ defmodule HackBoat.Learn do
                 ", "https://raw.githubusercontent.com/elixir-lang/elixir-lang.github.com/master/images/logo/logo.png")
     |> Cogs.send
   end
-
-  @doc """
-  Send Resources for Python.
-  """
   Cogs.def learn("python") do
     make_embed("Resources for Python", "
                **- GENERAL -**
