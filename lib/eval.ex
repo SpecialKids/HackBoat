@@ -1,4 +1,8 @@
 defmodule HackBoat.Elixir.Eval do
+  @moduledoc """
+  Contains Functions for the evaluation of Elixir Code.
+  """
+
   import Alchemy.Embed
   use Alchemy.Cogs
 
@@ -8,8 +12,8 @@ defmodule HackBoat.Elixir.Eval do
   Evaluate a snippet of Elixir Code.
 
   ## Parameters
-    - message: The original Alchemy.Message which invoked the Command.
-    - code: String containing the Elixir Code to be executed.
+    - message: The original Alchemy.Message which invoked the Command
+    - code: String containing the Elixir Code to be executed
   """
   def evaluate_elixir(message, code) do
        try do
@@ -24,8 +28,8 @@ defmodule HackBoat.Elixir.Eval do
   Create a simple Embed with red Colour and short text.
 
   ## Parameters
-    - error_message: String denoting the Message of what went wrong.
-    - thumbnail: Optional Link for a thumbnail to be shown within the Embed.
+    - error_message: String denoting the Message of what went wrong
+    - thumbnail: Optional Link for a thumbnail to be shown within the Embed
 
   ## Examples
       eval_error_embed("Evaluation of Elixir exceeded 5 second time limit.")
@@ -49,12 +53,12 @@ defmodule HackBoat.Elixir.Eval do
   Create an embedded Message displaying the Input and Output of Code Evaluation
 
   ## Parameters
-    - input: String that contains the code that was given.
-    - output: String that contains the Result of input's Execution.
-    - lang: String that specifies the Language that was used for Execution.
-    - message: The original Message that invoked the Evaluation.
-    - thumbnail: String that can optionally denote an image to display in the Embed.
-    - admin_mode: Boolean that specifies whether the User which invoked the Command is authorized or not.
+    - input: String that contains the code that was given
+    - output: String that contains the Result of input's Execution
+    - lang: String that specifies the Language that was used for Execution
+    - message: The original Message that invoked the Evaluation
+    - thumbnail: String that can optionally denote an image to display in the Embed
+    - admin_mode: Boolean that specifies whether the User which invoked the Command is authorized or not
   """
   def eval_embed(input, output, lang, message, thumbnail \\ nil, admin_mode \\ false) do
      maybe_thumbnail = case thumbnail do
@@ -79,7 +83,6 @@ defmodule HackBoat.Elixir.Eval do
      |> field("Output:", code_block.(output))
   end
 
-  # Parser for eval
   Cogs.set_parser(:eval, fn string ->
    string
    |> String.split(["```", "\n", "\n```"])
@@ -90,9 +93,9 @@ defmodule HackBoat.Elixir.Eval do
   Evaluate a Code Snippet in Elixir
 
   ## Parameters
-    - code: String that contains the Users codeblock.
+    - code: String that contains the Users codeblock
 
-  ## Examples
+  ## Example
       !eval \`\`\`elixir
       2 + 2
       \`\`\`
@@ -118,6 +121,9 @@ defmodule HackBoat.Elixir.Eval do
 
   @doc """
   Information Command to inform the User about not passing any Code to be executed.
+
+  ## Example
+      !eval
   """
   Cogs.def eval do
     eval_error_embed("Eval requires Code to execute.")
