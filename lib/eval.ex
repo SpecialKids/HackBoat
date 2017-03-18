@@ -4,7 +4,7 @@ defmodule HackBoat.Elixir.Eval do
   use Alchemy.Cogs
 
 
-  @valid_ids ["196989358165852160"]
+  @valid_ids ["196989358165852160, 197177484792299522"]
 
   def evaluate_elixir(message, code) do
        result = try do
