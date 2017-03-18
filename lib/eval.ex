@@ -106,7 +106,7 @@ defmodule HackBoat.Elixir.Eval do
 
       case Task.yield(task) || Task.shutdown(task) do
       {:ok, result} ->
-        embed = eval_embed(code, Macro.to_string(result), "elixir", message, thumb, true)
+        eval_embed(code, Macro.to_string(result), "elixir", message, thumb, true)
         |> Cogs.send
 
       nil ->
