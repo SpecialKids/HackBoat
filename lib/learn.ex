@@ -35,6 +35,10 @@ defmodule Hackbot.Learn do
   Cogs.def learn("all") do
     all_languages = [
       {
+        "**c++**",
+        "A low-level, fast, general-purpose, compiled programming language designed for building time-critical applications."
+      },
+      {
         "**elixir**",
         "A dynamic, functional, compiled language designed for building scalable and maintainable applications. Runs on the Erlang VM, known for low-latency, distributed and fault-tolerant systems."
       },
@@ -46,6 +50,7 @@ defmodule Hackbot.Learn do
     auto_field_embed("Available Learning Resources", all_languages)
     |> Cogs.send
   end
+
   Cogs.def learn("c++") do
     make_embed("Resources for C++", "
                 **- GENERAL -**
@@ -61,7 +66,8 @@ defmodule Hackbot.Learn do
                 **- POPULAR LIBRARIES -**
                 • **Boost** (general-purpose): <http://www.boost.org>
                 • **SDL2** (multimedia): <http://libsdl.org>
-                ", "https://github.com/jwkratz/cpp_logo/blob/master/cpp_logo_small.png")
+                • **OpenGL** (multimedia): <https://www.opengl.org>
+                ", "https://github.com/jwkratz/cpp_logo/blob/master/cpp_logo_small.png?raw=true")
     |> Cogs.send
   end
 
