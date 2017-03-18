@@ -46,6 +46,24 @@ defmodule Hackbot.Learn do
     auto_field_embed("Available Learning Resources", all_languages)
     |> Cogs.send
   end
+  Cogs.def learn("c++") do
+    make_embed("Resources for C++", "
+                **- GENERAL -**
+                • **C++ Resource Network**: <http://www.cplusplus.com>
+                • **Standard C++ Library Reference**: <http://www.cplusplus.com/reference/>
+                • **Standard C++**: <https://isocpp.org>
+                
+                **- LEARNING -**
+                • **LearnCpp**: <http://www.learncpp.com>
+                • **C++ Language**: <http://www.cplusplus.com/doc/tutorial/>
+                • **Programming: Principles and Practice using C++**: <https://ebooks-it.org/0321992784-ebook.htm>
+
+                **- POPULAR LIBRARIES -**
+                • **Boost** (general-purpose): <http://www.boost.org>
+                • **SDL2** (multimedia): <http://libsdl.org>
+                ", "https://github.com/jwkratz/cpp_logo/blob/master/cpp_logo_small.png")
+    |> Cogs.send
+  end
 
   Cogs.def learn("elixir") do
     make_embed("Resources for Elixir", "
@@ -67,7 +85,7 @@ defmodule Hackbot.Learn do
 
                 **- OTHER -**
                 • **Repository**: <https://github.com/elixir-lang/elixir>
-                • **Style Guide**: <https://github.com/lexmag/elixir-style-guide>
+                • **Style Guide**: <https://github.com/christopheradams/elixir_style_guide>
                 ", "https://raw.githubusercontent.com/elixir-lang/elixir-lang.github.com/master/images/logo/logo.png")
     |> Cogs.send
   end
