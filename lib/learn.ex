@@ -110,6 +110,10 @@ defmodule HackBoat.Learn do
         "A dynamic, functional, compiled language designed for building scalable and maintainable applications. Runs on the Erlang VM, known for low-latency, distributed and fault-tolerant systems."
       },
       {
+        "**javascript**",
+        "A lightwighted, interpreted or JIT-compiled programming language with first-class functions. It's a multi-paradigm, dynamic language, supporting object-oriented, imperative, and declarative styles."
+      },
+      {
         "**python**",
         "An easy to learn, general-purpose, interpreted programming language with efficient high-level data structures and a simple but effective approach to OOP."
       }
@@ -158,6 +162,30 @@ defmodule HackBoat.Learn do
                 • **Repository**: <https://github.com/elixir-lang/elixir>
                 • **Style Guide**: <https://github.com/christopheradams/elixir_style_guide>
                 ", "https://raw.githubusercontent.com/elixir-lang/elixir-lang.github.com/master/images/logo/logo.png")
+    |> Cogs.send
+  end
+  Cogs.def learn("js") do learn(message, "javascript") end
+  Cogs.def learn("javascript") do
+    make_embed("Resources for JavaScript", "
+                **- GENERAL -**
+                • **JavaScript | MDN**: <https://developer.mozilla.org/en/docs/Web/JavaScript>
+
+                **- LEARNING -**
+                • **W3Schools JS Tutorial**: <https://www.w3schools.com/Js/>
+                • **JavaScript.com**: <https://www.javascript.com>
+                • **MDN | First Steps**: <https://developer.mozilla.org/en-US/docs/Learn/JavaScript/First_steps>
+                • **MDN | Detailed Guide**: <https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide>
+
+                **- POPULAR LIBRARIES -**
+                • **Express** (web framework): <http://expressjs.com>
+                • **Electron** (desktop apps): <https://electron.atom.io>
+                • **discord.js** (discord library): <https://github.com/hydrabolt/discord.js>
+
+                **- OTHER -**
+                • **Reference**: <https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference>
+                • **Node.js** (JS runtime): <https://nodejs.org/en/>
+                • **Data Structures**: <https://developer.mozilla.org/en-US/docs/Web/JavaScript/Data_structures>
+                ", "http://ozekiphone.com/attachments/706/javascript_logo_without_title.png")
     |> Cogs.send
   end
   Cogs.def learn("python") do
