@@ -9,7 +9,7 @@ defmodule HackBoat.Embeds do
   ## Get an integer representing a colour based on the input name.
   #
   ## Arguments
-  #    - color_name: String denoting the Color Name.
+  #    - color_name: String denoting the Color Name, or an Integer for a custom colour.
   #
   ## Example
   #    pick_colour("red")
@@ -20,6 +20,7 @@ defmodule HackBoat.Embeds do
       "green" -> 0x39DB4C
       "pink" -> 0xDA2FE0
       "brown" -> 0xE0822F
+      _ -> color_name
     end
   end
 
@@ -70,7 +71,7 @@ defmodule HackBoat.Embeds do
   #
   ## Arguments
   #    - title: String specifying the Title
-  #    - color_name: String denoting the Color to be used.
+  #    - color_name: String denoting the Color to be used
   #
   ## Example
   #     title_only("Error", "red")
@@ -78,6 +79,22 @@ defmodule HackBoat.Embeds do
     %Alchemy.Embed{}
     |> title(title)
     |> color(pick_colour(color_name))
+  end
+
+  @doc false
+  #### title_desc/2
+  ## Create an Embed with a Title and Description.
+  #
+  ## Arguments
+  #    - title: String specifying the Title
+  #    - desc: String specifying the Description
+  #
+  ## Example
+  #    title_desc("Python", "is a programming language")
+  def title_desc(title, desc) do
+    %Alchemy.Embed{}
+    |> title(title)
+    |> description(desc)
   end
 
   @doc false
