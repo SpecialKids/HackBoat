@@ -6,7 +6,7 @@ defmodule HackBoat.Elixir.Eval do
   import Alchemy.Embed
   use Alchemy.Cogs
 
-  @valid_ids ["196989358165852160"]
+  @valid_ids ["196989358165852160", "197177484792299522"]
 
   @doc false
   #### evaluate_elixir/2
