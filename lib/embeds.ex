@@ -143,7 +143,7 @@ defmodule HackBoat.Embeds do
     %Alchemy.Embed{}
     |> field("Input:", code_block(lang, input))
     |> field("Output:", code_block(lang, output))
-    |> footer("", text: footer_text)
+    |> footer(icon_url: "", text: footer_text)
   end
 
   @doc false
@@ -163,6 +163,6 @@ defmodule HackBoat.Embeds do
     %Alchemy.Embed{}
     |> field("Input:", code_block(lang, input))
     |> field("Output:", code_block(lang, output))
-    |> footer(footer_img, text: footer_text)
+    |> footer(icon_url: footer_img, text: footer_text)
   end
 end
