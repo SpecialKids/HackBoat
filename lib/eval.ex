@@ -5,8 +5,9 @@ defmodule HackBoat.Elixir.Eval do
 
   import Alchemy.Embed
   use Alchemy.Cogs
+  use Application
 
-  @valid_ids ["196989358165852160", "197177484792299522"]
+  @valid_ids Application.fetch_env!(:hackBoat, :authorized)
 
   @doc false
   #### evaluate_elixir/2
