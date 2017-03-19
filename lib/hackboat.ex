@@ -5,12 +5,19 @@ defmodule HackBoat do
   use Application
   alias Alchemy.Client
 
-  @token Application.fetch_env!(:hackboat, :token)
-
+  @token Application.fetch_env!(:hackBoat, :token)
+  @self_id Application.fetch_env!(:hackBoat, :self_id)
 
   def start(_, _) do
-    run = Client.start(@token)
+    run =
+      if @self_id == "" do
+        Client.start(@token)
+      else
+        Client.start(@token, selfbot: @self_id)
+      end
+
     use HackBoat.Elixir.Eval
+    use HackBoat.Learn
     run
   end
 
