@@ -81,8 +81,22 @@ defmodule HackBoat.Embeds do
   end
 
   @doc false
-  #### eval_result/2
+  #### eval_result/1
   ## Create an Embed to display Code Evaluation Results.
+  #
+  ## Arguments
+  #    - output: String containing the Evaluation result.
+  #
+  ## Example
+  #    eval_result("Hello World")
+  def eval_result(output) do
+    %Alchemy.Embed{}
+    |> field("Output:", code_block(output))
+  end
+
+  @doc false
+  #### eval_result/2
+  ## Create an Embed to display Code Evaluation Results and Input.
   #
   ## Arguments
   #    - input: String containing the inputted Code.
@@ -92,12 +106,13 @@ defmodule HackBoat.Embeds do
   #    eval_result("print('hello world')", "'hello world'")
   def eval_result(input, output) do
     %Alchemy.Embed{}
-    |> field("Input:", code_block())
+    |> field("Input:", code_block(input))
+    |> field("Output:", code_block(output))
   end
 
   @doc false
   #### eval_result/3
-  ## Create an Embed with Syntax Highlighting to display Code Evaluation Results.
+  ## Create an Embed with Syntax Highlighting to display Code Evaluation Results and Input.
   #
   ## Arguments
   #    - input: String containing the inputted Code.
@@ -112,4 +127,42 @@ defmodule HackBoat.Embeds do
     |> field("Output:", code_block(lang, output))
   end
 
+  @doc false
+  #### eval_result/4
+  ## Create an Embed with Syntax Highlighting and a custom Footer Text to display Code Evaluation Results and Input.
+  #
+  ## Arguments
+  #    - input: String containing the inputted Code.
+  #    - output: String containing the Evaluation result.
+  #    - lang: String denoting the used language.
+  #    - footer_text: String denoting what to put in the Footer.
+  #
+  ## Example
+  #    eval_result("print('hello world')", "'hello world'", "python", "Python 2.7 Evaluation")
+  def eval_result(input, output, lang, footer_text) do
+    %Alchemy.Embed{}
+    |> field("Input:", code_block(lang, input))
+    |> field("Output:", code_block(lang, output))
+    |> footer("", text: footer_text)
+  end
+
+  @doc false
+  #### eval_result/5
+  ## Create an Embed with Syntax Highlighting and a custom Footer Text to display Code Evaluation Results and Input.
+  #
+  ## Arguments
+  #    - input: String containing the inputted Code.
+  #    - output: String containing the Evaluation result.
+  #    - lang: String denoting the used language.
+  #    - footer_text: String denoting what to put in the Footer.
+  #    - footer_img: String denoting the URL for an Image to be put in the Footer.
+  #
+  ## Example
+  #    eval_result("print('hello world')", "'hello world'", "python", "Python 2.7 Evaluation", "<python-logo-image>")
+  def eval_result(input, output, lang, footer_text, footer_img) do
+    %Alchemy.Embed{}
+    |> field("Input:", code_block(lang, input))
+    |> field("Output:", code_block(lang, output))
+    |> footer(footer_img, text: footer_text)
+  end
 end
