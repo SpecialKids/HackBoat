@@ -7,7 +7,7 @@ config :hackBoat,
   token: "",
 
   # Put User IDs that can use Evaluation Commands without restriction here.
-  authorized: ["", ""],
+  authorized: [""],
 
   # Add your User ID here if you want to use the Bot as a Selfbot. Leave empty if this is not the case.
   self_id: ""
