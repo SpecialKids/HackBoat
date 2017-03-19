@@ -136,7 +136,7 @@ defmodule HackBoat.Learn do
                 • **The Book:tm:**: <https://doc.rust-lang.org/book/>
                 • **Rust by Example**: <http://rustbyexample.com/>
                 • **The __Rustonomicon__, a guide to writing unsafe Rust**: <https://doc.rust-lang.org/nomicon/>",
-                "https://www.rust-lang.org/logos/rust-logo-blk.svg", 0xCC6C12)
+                "https://www.rust-lang.org/logos/rust-logo-128x128-blk.png", 0xCC6C12)
     |> Cogs.send
   end
 
