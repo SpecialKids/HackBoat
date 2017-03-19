@@ -125,6 +125,10 @@ defmodule HackBoat.Learn do
       {
         "**scala**",
         "Scala is a general-purpose programming language providing support for functional programming and a strong static type system. Designed to be concise, many of Scala's design decisions were designed to build from criticisms of Java."
+      },
+      {
+        "**D-lang**",
+        "D a systems programming language with C-like syntax and static typing. It combines efficiency, control and modeling power with safety and programmer productivity."
       }
     ]
     auto_field_embed("Available Learning Resources", all_languages)
@@ -147,6 +151,14 @@ defmodule HackBoat.Learn do
                 • **Learn Scala in Y Minutes**: <https://learnxinyminutes.com/docs/scala/>                
                 • **Programming Scala**: <http://ccfit.nsu.ru/~den/Scala/programming_in_scala_2nd.pdf>
                 ","https://www.scala-lang.org/resources/img/smooth-spiral.png", 0xAD0819)
+    |> Cogs.send
+  end
+  Cogs.def learn("D-lang") do
+    make_embed("Resources for D-lang", "
+                **- GENERAL -**
+                • **D-lang Home Page**: <https://dlang.org/>
+                • **D-lang Tour**: <https://tour.dlang.org/>",
+                "https://dlang.org/images/compiler-dmd.png", 0xD60C02)
     |> Cogs.send
   end
   Cogs.def learn("c++") do
