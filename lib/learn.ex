@@ -5,23 +5,7 @@ defmodule HackBoat.Learn do
 
   use Alchemy.Cogs
   import Alchemy.Embed
-
-  @doc false
-  #### auto_field_embed/2
-  ## Create an Embed that adds a number of fields based on the given input.
-  #
-  ## Arguments
-  #  - title: String specifying the Title of the Embed
-  #  - information: An Array containing Objects denoting field's titles and descriptions
-  #
-  ## Example
-  #    auto_field_embed("Lots of Things", [ {"thing one", "describe thing one"}, {"thing two", "describe thing two"} ])
-  def auto_field_embed(title, information) do
-    Enum.reduce(information, %Alchemy.Embed{}, fn {name, value}, embed ->
-      field(embed, name, value)
-    end)
-    |> title(title)
-  end
+  import HackBoat.Embeds
 
   @doc false
   #### error_embed/1
@@ -131,7 +115,7 @@ defmodule HackBoat.Learn do
         "D a systems programming language with C-like syntax and static typing. It combines efficiency, control and modeling power with safety and programmer productivity."
       }
     ]
-    auto_field_embed("Available Learning Resources", all_languages)
+    HackBoat.Embeds.auto_field("Available Learning Resources", all_languages)
     |> Cogs.send
   end
   Cogs.def learn("rust") do

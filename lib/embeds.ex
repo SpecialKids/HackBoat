@@ -81,6 +81,23 @@ defmodule HackBoat.Embeds do
   end
 
   @doc false
+  #### auto_field/2
+  ## Create an Embed that adds a number of fields based on the given input.
+  #
+  ## Arguments
+  #  - title: String specifying the Title of the Embed
+  #  - information: An Array containing Objects denoting field's titles and descriptions
+  #
+  ## Example
+  #    auto_field_embed("Lots of Things", [ {"thing one", "describe thing one"}, {"thing two", "describe thing two"} ])
+  def auto_field(title, information) do
+    Enum.reduce(information, %Alchemy.Embed{}, fn {name, value}, embed ->
+      field(embed, name, value)
+    end)
+    |> title(title)
+  end
+
+  @doc false
   #### eval_result/1
   ## Create an Embed to display Code Evaluation Results.
   #
