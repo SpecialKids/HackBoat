@@ -59,7 +59,7 @@ defmodule HackBoat.Elixir.Eval do
   #  - message: The original Message that invoked the Evaluation
   #  - thumbnail: String that can optionally denote an image to display in the Embed
   #  - admin_mode: Boolean that specifies whether the User which invoked the Command is authorized or not
-  def eval_embed(input, output, lang, message, thumbnail \\ nil, admin_mode \\ false) do
+  def eval_embed(input, output, lang, message, thumbnail \\ nil, admin_mode \\ false, color) do
      maybe_thumbnail = case thumbnail do
        nil -> fn e -> e end
        link -> fn e -> thumbnail(e, link) end
@@ -80,6 +80,7 @@ defmodule HackBoat.Elixir.Eval do
      |> maybe_admin.()
      |> field("Input:", code_block.(input))
      |> field("Output:", code_block.(output))
+     |> color(color)
   end
 
   # Set a Parser to extract Code from Codeblocks
@@ -117,7 +118,7 @@ defmodule HackBoat.Elixir.Eval do
 
       case Task.yield(task) || Task.shutdown(task) do
       {:ok, result} ->
-        eval_embed(code, Macro.to_string(result), "elixir", message, thumb, true)
+        eval_embed(code, Macro.to_string(result), "elixir", message, thumb, true, 0x370C56)
         |> Cogs.send
 
       nil ->
