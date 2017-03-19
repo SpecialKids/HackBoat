@@ -2,6 +2,12 @@
 
 **TODO: Add description**
 
+## Contributing
+
+After cloning the repo, use `mix deps.get` to install dependancies
+Then, set your token in `config/config.exs`
+And finally, run the app with `iex -S mix`
+
 ## Installation
 
 If [available in Hex](https://hex.pm/docs/publish), the package can be installed
@@ -16,4 +22,3 @@ end
 Documentation can be generated with [ExDoc](https://github.com/elixir-lang/ex_doc)
 and published on [HexDocs](https://hexdocs.pm). Once published, the docs can
 be found at [https://hexdocs.pm/hackBoat](https://hexdocs.pm/hackBoat).
-
