@@ -120,6 +120,10 @@ defmodule HackBoat.Learn do
       {
         "**rust**",
         "A Functional/Procedural/Data oriented systems programming language that runs blazingly fast, prevents segfaults, and guarantees thread safety."
+      },
+      {
+        "**scala**",
+        "Scala is a general-purpose programming language providing support for functional programming and a strong static type system. Designed to be concise, many of Scala's design decisions were designed to build from criticisms of Java."
       }
     ]
     auto_field_embed("Available Learning Resources", all_languages)
@@ -133,7 +137,17 @@ defmodule HackBoat.Learn do
                 • **The __Rustonomicon__, a guide to writing unsafe Rust**: <https://doc.rust-lang.org/nomicon/>
                 ", "https://www.rust-lang.org/logos/rust-logo-blk.svg")
     |> Cogs.send
-  end 
+  end
+
+  Cogs.def learn("scala") do
+    make_embed("Resources for Scala", "
+                **- GENERAL -**                
+                • **Scala School**: <https://twitter.github.io/scala_school/>                
+                • **Learn Scala in Y Minutes**: <https://learnxinyminutes.com/docs/scala/>                
+                • **Programming Scala**: <http://ccfit.nsu.ru/~den/Scala/programming_in_scala_2nd.pdf>", 
+               "https://www.scala-lang.org/resources/img/smooth-spiral.png")
+    |> Cogs.send
+  end
   Cogs.def learn("c++") do
     make_embed("Resources for C++", "
                 **- GENERAL -**
