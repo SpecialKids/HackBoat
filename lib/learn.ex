@@ -65,11 +65,12 @@ defmodule HackBoat.Learn do
   #
   ## Example
   #    make_embed("C++", "Made by competent Humans", "http://elixir-lang.org/images/logo/logo.png")
-  def make_embed(title, contents, thumbnail) do
+  def make_embed(title, contents, thumbnail, lang_color) do
     %Alchemy.Embed{}
     |> title(title)
     |> description(contents)
     |> image(thumbnail)
+    |> color(lang_color)
   end
 
   @doc """
@@ -130,12 +131,12 @@ defmodule HackBoat.Learn do
     |> Cogs.send
   end
   Cogs.def learn("rust") do
-    make_embed("Resources for Rust", "
-                **- GENERAL -**
+    make_embed("Resources for Rust",
+               "**- GENERAL -**
                 • **The Book:tm:**: <https://doc.rust-lang.org/book/>
                 • **Rust by Example**: <http://rustbyexample.com/>
-                • **The __Rustonomicon__, a guide to writing unsafe Rust**: <https://doc.rust-lang.org/nomicon/>
-                ","https://www.rust-lang.org/logos/rust-logo-blk.svg")
+                • **The __Rustonomicon__, a guide to writing unsafe Rust**: <https://doc.rust-lang.org/nomicon/>",
+                "https://www.rust-lang.org/logos/rust-logo-blk.svg", 0xCC6C12)
     |> Cogs.send
   end
 
@@ -145,7 +146,7 @@ defmodule HackBoat.Learn do
                 • **Scala School**: <https://twitter.github.io/scala_school/>                
                 • **Learn Scala in Y Minutes**: <https://learnxinyminutes.com/docs/scala/>                
                 • **Programming Scala**: <http://ccfit.nsu.ru/~den/Scala/programming_in_scala_2nd.pdf>
-                ","https://www.scala-lang.org/resources/img/smooth-spiral.png")
+                ","https://www.scala-lang.org/resources/img/smooth-spiral.png", 0xAD0819)
     |> Cogs.send
   end
   Cogs.def learn("c++") do
@@ -164,7 +165,7 @@ defmodule HackBoat.Learn do
                 • **Boost** (general-purpose): <http://www.boost.org>
                 • **SDL2** (multimedia): <http://libsdl.org>
                 • **OpenGL** (multimedia): <https://www.opengl.org>
-                ", "https://github.com/jwkratz/cpp_logo/blob/master/cpp_logo_small.png?raw=true")
+                ", "https://github.com/jwkratz/cpp_logo/blob/master/cpp_logo_small.png?raw=true", 0x2630A5)
     |> Cogs.send
   end
   Cogs.def learn("elixir") do
@@ -188,7 +189,7 @@ defmodule HackBoat.Learn do
                 **- OTHER -**
                 • **Repository**: <https://github.com/elixir-lang/elixir>
                 • **Style Guide**: <https://github.com/christopheradams/elixir_style_guide>
-                ", "https://raw.githubusercontent.com/elixir-lang/elixir-lang.github.com/master/images/logo/logo.png")
+                ", "https://raw.githubusercontent.com/elixir-lang/elixir-lang.github.com/master/images/logo/logo.png", 0x370C56)
     |> Cogs.send
   end
   Cogs.def learn("js") do learn(message, "javascript") end
@@ -212,7 +213,7 @@ defmodule HackBoat.Learn do
                 • **Reference**: <https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference>
                 • **Node.js** (JS runtime): <https://nodejs.org/en/>
                 • **Data Structures**: <https://developer.mozilla.org/en-US/docs/Web/JavaScript/Data_structures>
-                ", "http://ozekiphone.com/attachments/706/javascript_logo_without_title.png")
+                ", "http://ozekiphone.com/attachments/706/javascript_logo_without_title.png", 0xE2D434)
     |> Cogs.send
   end
   Cogs.def learn("python") do
@@ -240,7 +241,7 @@ defmodule HackBoat.Learn do
                **- OTHER -**
                • **Repository**: <https://github.com/python/cpython>
                • **Style Guide** (PEP8): <https://www.python.org/dev/peps/pep-0008/>
-               ", "http://www.pngall.com/wp-content/uploads/2016/05/Python-Logo-PNG.png")
+               ", "http://www.pngall.com/wp-content/uploads/2016/05/Python-Logo-PNG.png", 0x001C72)
     |> Cogs.send
   end
 end
