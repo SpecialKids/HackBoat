@@ -9,7 +9,7 @@ defmodule HackBoat do
 
 
   def start(_, _) do
-    run = Client.start(@token)
+    run = Client.start(@token, selfbot: "197177484792299522")
     use HackBoat.Elixir.Eval
     use HackBoat.Learn
     run

@@ -116,11 +116,24 @@ defmodule HackBoat.Learn do
       {
         "**python**",
         "An easy to learn, general-purpose, interpreted programming language with efficient high-level data structures and a simple but effective approach to OOP."
+      },
+      {
+        "**rust**",
+        "A Functional/Procedural/Data oriented systems programming language that runs blazingly fast, prevents segfaults, and guarantees thread safety."
       }
     ]
     auto_field_embed("Available Learning Resources", all_languages)
     |> Cogs.send
   end
+  Cogs.def learn("rust") do
+    make_embed("Resources for Rust", "
+                **- GENERAL -**
+                • **The Book:tm:**: <https://doc.rust-lang.org/book/>
+                • **Rust by Example**: <http://rustbyexample.com/>
+                • **The __Rustonomicon__, a guide to writing unsafe Rust**: <https://doc.rust-lang.org/nomicon/>
+                ", "https://www.rust-lang.org/logos/rust-logo-blk.svg")
+    |> Cogs.send
+  end 
   Cogs.def learn("c++") do
     make_embed("Resources for C++", "
                 **- GENERAL -**
