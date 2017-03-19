@@ -135,7 +135,7 @@ defmodule HackBoat.Learn do
                 • **The Book:tm:**: <https://doc.rust-lang.org/book/>
                 • **Rust by Example**: <http://rustbyexample.com/>
                 • **The __Rustonomicon__, a guide to writing unsafe Rust**: <https://doc.rust-lang.org/nomicon/>
-                ", "https://www.rust-lang.org/logos/rust-logo-blk.svg")
+                ","https://www.rust-lang.org/logos/rust-logo-blk.svg")
     |> Cogs.send
   end
 
@@ -144,8 +144,8 @@ defmodule HackBoat.Learn do
                 **- GENERAL -**                
                 • **Scala School**: <https://twitter.github.io/scala_school/>                
                 • **Learn Scala in Y Minutes**: <https://learnxinyminutes.com/docs/scala/>                
-                • **Programming Scala**: <http://ccfit.nsu.ru/~den/Scala/programming_in_scala_2nd.pdf>", 
-               "https://www.scala-lang.org/resources/img/smooth-spiral.png")
+                • **Programming Scala**: <http://ccfit.nsu.ru/~den/Scala/programming_in_scala_2nd.pdf>
+                ","https://www.scala-lang.org/resources/img/smooth-spiral.png")
     |> Cogs.send
   end
   Cogs.def learn("c++") do

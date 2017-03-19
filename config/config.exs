@@ -3,4 +3,4 @@
 use Mix.Config
 
 config :hackBoat,
-  token: "ADD HERE"
+  token: "mfa.eYL1M63CvRT2bIIDHl64qHWtQaBemAKoVpZMWDZJ1xgM757lKpdBYjEoENTRS5V_0MS4gf4--FdFfx2lvp6x"
