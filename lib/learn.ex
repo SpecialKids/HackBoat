@@ -219,7 +219,7 @@ defmodule HackBoat.Learn do
                • **Official Docs**: <https://docs.python.org/3/>
 
                **- LEARNING -**
-               • **Oficial Tutorial**: <https://docs.python.org/3/tutorial/index.html>
+               • **Official Tutorial**: <https://docs.python.org/3/tutorial/index.html>
                • **Interactive Python Tutorial**: <http://www.learnpython.org>
                • **Automate The Boring Stuff**: <http://automatetheboringstuff.com>
                • **A Byte of Python**: <https://python.swaroopch.com>

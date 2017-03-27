@@ -7,7 +7,7 @@ defmodule HackBoat do
 
   @token Application.fetch_env!(:hackBoat, :token)
   @self_id Application.fetch_env!(:hackBoat, :self_id)
-
+  
   def start(_, _) do
     run =
       if @self_id == "" do
