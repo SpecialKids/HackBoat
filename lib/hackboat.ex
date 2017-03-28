@@ -21,6 +21,7 @@ defmodule HackBoat do
   def start(_, _) do
     run = Client.start(@token)
     use Commands
+    use HackBoat.Information
     use HackBoat.Roles
     run
   end
