@@ -35,11 +35,31 @@ defmodule HackBoat.Information do
   end
 
   @doc """
+  Provides information about a mentioned User.
+  """
+  Cogs.def userinfo(_mention) do
+    [wanted_user | _others] = message.mentions
+    "**Name**: #{wanted_user.username}##{wanted_user.discriminator}\n"
+    <> "**ID**: #{wanted_user.id}\n"
+    <> "**Avatar**: #{User.avatar_url(wanted_user)}"
+    |> Cogs.say
+  end
+
+  @doc """
   Gets the Avatar URL of the User that invoked the Command.
   """
   Cogs.def avatar do
     {:ok, member} = Cogs.member()
     "**Your Avatar URL**: #{User.avatar_url(member.user, "png", 512)}"
+    |> Cogs.say
+  end
+
+  @doc """
+  Gets the Avatar URL of a mentioned User.
+  """
+  Cogs.def avatar(_mention) do
+    [wanted_user | _others] = message.mentions
+    "**#{wanted_user.username}'s Avatar URL**: #{User.avatar_url(wanted_user, "png", 512)}"
     |> Cogs.say
   end
 end
