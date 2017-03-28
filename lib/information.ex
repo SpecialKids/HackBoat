@@ -40,13 +40,6 @@ defmodule HackBoat.Information do
     |> Cogs.say
   end
 
-  @doc ~S"""
-  Provides information about a "mentioned" Channel
-  """
-  Cogs.def channelinfo(channel_mention) do
-    
-  end
-
   @doc """
   Provides information about the Member that invoked the Command.
   """
