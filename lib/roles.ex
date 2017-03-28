@@ -49,6 +49,14 @@ defmodule HackBoat.Roles do
     end
     |> Cogs.say
   end
+  
+  @doc """
+  Another helper Command to inform the User about wrong usage of the Command.                                                                                                                 "WRONG"
+  """
+  Cogs.def leaverole do
+    Cogs.say "You need to specify the Role which you want to leave. "
+          <> "List all using `!roles`"
+  end
 
   @doc """
   Leave a Role.
@@ -75,4 +83,6 @@ defmodule HackBoat.Roles do
     end
     |> Cogs.say
   end
+
+
 end
