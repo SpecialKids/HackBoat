@@ -28,7 +28,8 @@ defmodule HackBoat.Information do
 
   @doc """
   Provides information about the Channel in which the Command was invoked.
-  Only works on Guild Channels.
+  Only works on Guild Channels, because DM's do not have positions nor topics,
+  nor guild IDs. They have a set number of recipients though.
   """
   Cogs.def channelinfo do
     {:ok, channel} = Client.get_channel(message.channel_id)
