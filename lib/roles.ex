@@ -7,6 +7,7 @@ defmodule HackBoat.Roles do
   use Alchemy.Cogs
   alias Alchemy.Client
 
+  # The Self-Assignable Roles set in the Configuration
   @self_assignable Application.fetch_env!(:hackBoat, :roles)
 
   # Get a Role
@@ -17,6 +18,14 @@ defmodule HackBoat.Roles do
     end
   end
 
+  @doc """
+  View all self-assignable Roles that are specified in config.exs.
+  """
+  Cogs.def roles do
+    "**- Self-assignable Roles** -\n" <> Enum.map_join(@self_assignable, ", ", &(&1))
+    |> Cogs.say
+  end
+  
   @doc """
   Helper Command to inform the User about wrong usage of the Command.                                                                                                                 "WRONG"
   """
@@ -49,7 +58,7 @@ defmodule HackBoat.Roles do
     end
     |> Cogs.say
   end
-  
+
   @doc """
   Another helper Command to inform the User about wrong usage of the Command.                                                                                                                 "WRONG"
   """
