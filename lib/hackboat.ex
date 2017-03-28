@@ -7,7 +7,6 @@ defmodule HackBoat do
 
   @token Application.fetch_env!(:hackBoat, :token)
 
-
   defmodule Commands do
   @moduledoc """
   A basic set of commands.
@@ -22,7 +21,7 @@ defmodule HackBoat do
   def start(_, _) do
     run = Client.start(@token)
     use Commands
-    use HackBoat.Administration
+    use HackBoat.Roles
     run
   end
 
