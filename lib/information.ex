@@ -5,7 +5,10 @@ defmodule HackBoat.Information do
   """
 
   use Alchemy.Cogs
+  alias Alchemy.Channel
+  alias Alchemy.Client
   alias Alchemy.User
+
 
   @doc """
   Provides information about the Guild this Command was used on.
@@ -21,6 +24,18 @@ defmodule HackBoat.Information do
       <> "**Icon**: https://cdn.discordapp.com/icons/#{guild.id}/#{guild.icon}.jpg\n"
       <> "**Emojis**: #{Enum.map_join(guild.emojis, ", ", &("<:" <> &1.name <> ":" <> &1.id <> ">"))}"
       |> Cogs.say
+  end
+
+  @doc """
+  Provides information about the Channel in which the Command was invoked.
+  Only works on Guild Channels.
+  """
+  Cogs.def channelinfo do
+    {:ok, channel} = Client.get_channel(message.channel_id)
+    "**ID**: #{channel.id}\n"
+    <> "**Position**: #{channel.position}\n"
+    <> "**Topic**: #{channel.topic}\n"
+    <> "**Guild ID**: #{channel.guild_id}\n"
   end
 
   @doc """
