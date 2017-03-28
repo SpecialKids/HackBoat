@@ -32,11 +32,19 @@ defmodule HackBoat.Information do
   nor guild IDs. They have a set number of recipients though.
   """
   Cogs.def channelinfo do
-    {:ok, channel} = Client.get_channel(message.channel_id)
+    {:ok, channel} = Task.await Client.get_channel(message.channel_id)
     "**ID**: #{channel.id}\n"
     <> "**Position**: #{channel.position}\n"
     <> "**Topic**: #{channel.topic}\n"
     <> "**Guild ID**: #{channel.guild_id}\n"
+    |> Cogs.say
+  end
+
+  @doc ~S"""
+  Provides information about a "mentioned" Channel
+  """
+  Cogs.def channelinfo(channel_mention) do
+    
   end
 
   @doc """
