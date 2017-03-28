@@ -5,7 +5,6 @@ defmodule HackBoat.Information do
   """
 
   use Alchemy.Cogs
-  alias Alchemy.Channel
   alias Alchemy.Client
   alias Alchemy.User
 
@@ -14,16 +13,16 @@ defmodule HackBoat.Information do
   Provides information about the Guild this Command was used on.
   """
   Cogs.def serverinfo do
-      {:ok, guild} = Cogs.guild()
-      "**Name**: #{guild.name}\n"
-      <> "**ID**: #{guild.id}\n"
-      <> "**Region**: #{guild.region}\n"
-      <> "**Members**: #{guild.member_count}\n"
-      <> "**Owner**: #{guild.owner}\n"
-      <> "**Created**: #{guild.joined_at}\n"
-      <> "**Icon**: https://cdn.discordapp.com/icons/#{guild.id}/#{guild.icon}.jpg\n"
-      <> "**Emojis**: #{Enum.map_join(guild.emojis, ", ", &("<:" <> &1.name <> ":" <> &1.id <> ">"))}"
-      |> Cogs.say
+    {:ok, guild} = Cogs.guild()
+    "**Name**: #{guild.name}\n"
+    <> "**ID**: #{guild.id}\n"
+    <> "**Region**: #{guild.region}\n"
+    <> "**Members**: #{guild.member_count}\n"
+    <> "**Owner**: #{guild.owner}\n"
+    <> "**Created**: #{guild.joined_at}\n"
+    <> "**Icon**: https://cdn.discordapp.com/icons/#{guild.id}/#{guild.icon}.jpg\n"
+    <> "**Emojis**: #{Enum.map_join(guild.emojis, ", ", &("<:" <> &1.name <> ":" <> &1.id <> ">"))}"
+    |> Cogs.say
   end
 
   @doc """
