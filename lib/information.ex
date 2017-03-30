@@ -100,4 +100,16 @@ defmodule HackBoat.Information do
     "**Online for**: " <> "#{Timex.diff(@start_time, Timex.now(), :duration) |> Timex.format_duration(:humanized)}"
     |> Cogs.say
   end
+
+
+  @doc """
+  Get a DDG query Link. Good site. Nice Ducks.
+  Also, set the parser to "consume the rest" of the message besides the second word.
+  """
+  Cogs.set_parser(:g, &List.wrap/1)
+  Cogs.def g(query) do
+    "https://www.duckduckgo.com/?q=#{String.replace(query, " ", "+")}"
+    |> Cogs.say
+  end
+
 end
