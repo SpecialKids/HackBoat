@@ -82,6 +82,14 @@ defmodule HackBoat.Information do
   end
 
   @doc """
+  Get the ID of the user that invoked the Command.
+  """
+  Cogs.def id do
+    "**Your ID is**: `#{message.author.id}`"
+    |> Cogs.say
+  end
+  
+  @doc """
   Gets the ID of a mentioned User, Channel, or other mentionable things.
   Actually just extracts the ID from the Mention since Discord Mentions work
   using the ID.
