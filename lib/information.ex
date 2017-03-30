@@ -7,7 +7,9 @@ defmodule HackBoat.Information do
   use Alchemy.Cogs
   alias Alchemy.Client
   alias Alchemy.User
+  use Timex
 
+  @start_time Timex.now()
 
   @doc """
   Provides information about the Guild this Command was used on.
@@ -76,6 +78,24 @@ defmodule HackBoat.Information do
   Cogs.def avatar(_mention) do
     [wanted_user | _others] = message.mentions
     "**#{wanted_user.username}'s Avatar URL**: #{User.avatar_url(wanted_user, "png", 512)}"
+    |> Cogs.say
+  end
+
+  @doc """
+  Gets the ID of a mentioned User, Channel, or other mentionable things.
+  Actually just extracts the ID from the Mention since Discord Mentions work
+  using the ID.
+  """
+  Cogs.def id(what) do
+    "**The ID of #{what} is**: `"<> String.replace(message.content, ~r/[^0-9]/, "") <> "`"
+    |> Cogs.say
+  end
+
+  @doc """
+  Get the total uptime of the Bot since the last compilation of this Module.
+  """
+  Cogs.def uptime do
+    "**Online for**: " <> "#{Timex.diff(@start_time, Timex.now(), :duration) |> Timex.format_duration(:humanized)}"
     |> Cogs.say
   end
 end

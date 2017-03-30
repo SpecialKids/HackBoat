@@ -29,6 +29,7 @@ defmodule HackBoat.Mixfile do
   #
   # Type "mix help deps" for more examples and options
   defp deps do
-    [{:alchemy, git: "https://github.com/cronokirby/alchemy.git"}]
+    [{:alchemy, git: "https://github.com/cronokirby/alchemy.git"},
+     {:timex, "~> 3.0"}]
   end
 end

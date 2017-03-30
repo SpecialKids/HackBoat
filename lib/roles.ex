@@ -21,10 +21,10 @@ defmodule HackBoat.Roles do
   @doc """
   View all self-assignable Roles that are specified in config.exs.
   """
-  Cogs.def roles do
-    "**- Self-assignable Roles** -\n" <> Enum.map_join(@self_assignable, ", ", &(&1))
-    |> Cogs.say
-  end
+Cogs.def roles do
+  "**- Self-assignable Roles** -\n" <> Enum.map_join(@self_assignable, ", ", &(&1))
+  |> Cogs.say
+end
 
   @doc """
   Helper Command to inform the User about wrong usage of the Command.                                                                                                                 "WRONG"
