@@ -94,7 +94,7 @@ defmodule HackBoat.Information do
   @doc """
   Get the total uptime of the Bot since the last compilation of this Module.
   Is not really the Uptime, but considering Elixir never crashes it's kinda
-  accurate, so I added it. Smart. 
+  accurate, so I added it. Smart. Good. Simple. Elixir.
   """
   Cogs.def uptime do
     "**Online for**: " <> "#{Timex.diff(@start_time, Timex.now(), :duration) |> Timex.format_duration(:humanized)}"
