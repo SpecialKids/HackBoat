@@ -1,6 +1,6 @@
 # HackBoat
 
-**TODO: Add description**
+Discord Bot made in Elixir.
 
 ## Contributing
 
